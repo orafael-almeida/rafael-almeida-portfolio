@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, Calistoga } from "next/font/google";
 import { twMerge } from "tailwind-merge";
+import { ThemeProvider } from "@/providers/theme-provider";
+import ThemeAnimationHandler from "@/components/ThemeAnimationHandler";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({
@@ -21,15 +23,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body
         className={twMerge(
           inter.variable,
           calistoga.variable,
-          "bg-gray-900 text-white antialiased font-sans"
+          "text-white antialiased font-sans"
         )}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          themes={["light", "dark"]}
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ThemeAnimationHandler>
+          {children}
+
+          </ThemeAnimationHandler>
+        </ThemeProvider>
       </body>
     </html>
   );
