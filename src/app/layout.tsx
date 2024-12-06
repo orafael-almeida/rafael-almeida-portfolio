@@ -3,7 +3,6 @@ import "./globals.css";
 import { Inter, Calistoga } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import { ThemeProvider } from "@/providers/theme-provider";
-import ThemeAnimationHandler from "@/components/ThemeAnimationHandler";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({
@@ -13,7 +12,7 @@ const calistoga = Calistoga({
 });
 
 export const metadata: Metadata = {
-  title: "Rafael Almeida",
+  title: "Rafael Almeida - Portolio",
   description: "Fullstack Creative Developer",
 };
 
@@ -28,20 +27,16 @@ export default function RootLayout({
         className={twMerge(
           inter.variable,
           calistoga.variable,
-          "text-white antialiased font-sans"
+          "bg-[#fefefe] dark:bg-gray-900 text-gray-900 dark:text-slate-200 antialiased font-sans"
         )}
       >
         <ThemeProvider
           attribute="class"
-          themes={["light", "dark"]}
-          defaultTheme="system"
-          enableSystem
+          themes={["dark", "light"]}
+          defaultTheme="dark"
           disableTransitionOnChange
         >
-          <ThemeAnimationHandler>
           {children}
-
-          </ThemeAnimationHandler>
         </ThemeProvider>
       </body>
     </html>

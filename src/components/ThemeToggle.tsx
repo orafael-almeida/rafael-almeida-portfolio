@@ -8,7 +8,6 @@ export default function DarkMode() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
-  // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);
 
   const trans = {
@@ -35,7 +34,6 @@ export default function DarkMode() {
       opacity: 1,
     },
   };
-
   const vMCircle = {
     dark: {
       cx: 12,
@@ -46,7 +44,6 @@ export default function DarkMode() {
       cy: 0,
     },
   };
-
   const vCCircle = {
     dark: {
       r: 9,
@@ -60,13 +57,13 @@ export default function DarkMode() {
 
   return (
     <motion.div
-      initial={theme === "dark" ? "dark" : "light"}
-      animate={theme === "dark" ? "dark" : "light"}
+      initial={theme === "dark" ? "light" : "dark"}
+      animate={theme === "dark" ? "light" : "dark"}
     >
       <button
         aria-label="Toggle Dark Mode"
         type="button"
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
         title={theme === "dark" ? "Ativar Modo Light" : "Ativar Modo Dark"}
       >
         <motion.svg
