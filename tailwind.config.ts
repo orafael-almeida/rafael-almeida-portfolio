@@ -25,6 +25,7 @@ const config: Config = {
       fontFamily: {
         sans: "var(--font-sans)",
         serif: "var(--font-serif)",
+        hero: "var(--font-hero)",
       },
       colors: {
         dark: "#232A3C",

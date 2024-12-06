@@ -41,7 +41,7 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="max-w-lg mx-auto">
-          <h1 className=" text-3xl md:text-5xl text-center mt-8 tracking-wide">
+          <h1 className="font-hero text-3xl md:text-6xl text-center mt-8 tracking-wide">
             RAFAEL ALMEIDA
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">

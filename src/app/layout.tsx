@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter, Calistoga } from "next/font/google";
+import { Inter, Calistoga, Lilita_One } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import { ThemeProvider } from "@/providers/theme-provider";
+
+const lilitaOne = Lilita_One({
+  subsets: ["latin"],
+  variable: "--font-hero",
+  weight: ["400"],
+});
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({
@@ -27,6 +33,7 @@ export default function RootLayout({
         className={twMerge(
           inter.variable,
           calistoga.variable,
+          lilitaOne.variable,
           "bg-[#fefefe] dark:bg-gray-900 text-gray-900 dark:text-slate-200 antialiased font-sans"
         )}
       >
