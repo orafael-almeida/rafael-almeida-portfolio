@@ -14,4 +14,24 @@ body {
   .nav-item {
     @apply px-4 py-1.5 rounded-full text-sm font-semibold transition duration-300 hover:bg-gray-900/60 hover:text-white dark:hover:bg-white/10 ;
   }
+
+  .hero-ring {
+    @apply absolute inset-0  border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-red-300/5 shadow-[0_0_80px_inset] shadow-violet-300/5
+  }
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.star {
+  animation: twinkle 5s infinite;
 }
