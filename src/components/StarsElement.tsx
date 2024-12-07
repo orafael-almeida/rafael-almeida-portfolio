@@ -48,10 +48,25 @@ const StarsBackground: React.FC = () => {
       }
     };
 
+    const handleTouchMove = (event: TouchEvent) => {
+      const touch = event.touches[0];
+      const { clientX, clientY } = touch;
+      const rect = starsRef.current?.getBoundingClientRect();
+      if (rect) {
+        const x = ((clientX - rect.left) / rect.width - 0.5) * 2;
+        const y = ((clientY - rect.top) / rect.height - 0.5) * 2;
+        starsRef.current!.style.transform = `translate(${x * 10}px, ${
+          y * 10
+        }px)`;
+      }
+    };
+
     document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("touchmove", handleTouchMove);
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
 
