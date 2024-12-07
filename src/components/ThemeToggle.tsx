@@ -61,6 +61,7 @@ export default function DarkMode() {
       animate={theme === "dark" ? "light" : "dark"}
     >
       <button
+        className="flex justify-center items-center p-0"
         aria-label="Toggle Dark Mode"
         type="button"
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}

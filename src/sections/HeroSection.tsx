@@ -14,7 +14,7 @@ const MOCK_CONTACTS = [
     icon: <FiLinkedin />,
   },
   {
-    url: "https://instagram.com/orafa-almeida",
+    url: "https://instagram.com/orafa.almeida",
     icon: <FiInstagram />,
   },
 ];
@@ -23,14 +23,19 @@ const HeroSection = () => {
   return (
     <div className="py-32 md:py-48 lg:py-56 relative z-0 h-dvh flex items-center before:absolute before:inset-0 before:bg-[radial-gradient(circle,_rgba(0,0,0,0)_620px,_rgba(0,0,0,0.8)_100%)]">
       <div
-        className="absolute inset-0 -z-30 opacity-5"
-        style={{ backgroundImage: `url(${ImgEffect.src})` }}
-      ></div>
-      <StarsBackground />
-      <div className="size-[500px]  md:size-[700px] lg:size-[820px] hero-ring relatve"></div>
-      <div className="size-[700px] md:size-[1120px] lg:size-[1220px] hero-ring" />
-      <div className="size-[900px] md:size-[1520px] lg:size-[1620px] hero-ring" />
-      <div className="size-[1100px] md:size-[1720px] lg:size-[1920px] hero-ring" />
+      className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]"
+      >
+        <div
+          className="absolute inset-0 -z-30 opacity-5"
+          style={{ backgroundImage: `url(${ImgEffect.src})` }}
+        />
+
+        <StarsBackground />
+        <div className="size-[500px]  md:size-[700px] lg:size-[820px] hero-ring relatve"></div>
+        <div className="size-[600px] md:size-[1120px] lg:size-[1220px] hero-ring" />
+        <div className="size-[700px] md:size-[1520px] lg:size-[1620px] hero-ring" />
+        <div className="size-[800px] md:size-[1720px] lg:size-[1920px] hero-ring" />
+      </div>
       <div className="container">
         <div className="flex flex-col items-center">
           <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
@@ -41,7 +46,7 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="max-w-lg mx-auto">
-          <h1 className="font-hero text-3xl md:text-6xl text-center mt-8 tracking-wide">
+          <h1 className="font-hero text-5xl md:text-6xl text-center mt-8 tracking-wide">
             RAFAEL ALMEIDA
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">
