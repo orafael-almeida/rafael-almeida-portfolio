@@ -21,7 +21,7 @@ const MOCK_CONTACTS = [
 
 const HeroSection = () => {
   return (
-    <div className="py-32 md:py-48 lg:py-56 relative z-0 h-screen flex items-center before:absolute before:inset-0 before:bg-[radial-gradient(circle,_rgba(0,0,0,0)_620px,_rgba(0,0,0,0.8)_100%)] overflow-hidden">
+    <div id="home" className="py-32 md:py-48 lg:py-56 relative z-0 h-screen flex items-center before:absolute before:inset-0 before:bg-[radial-gradient(circle,_rgba(0,0,0,0)_620px,_rgba(0,0,0,0.8)_100%)] overflow-hidden">
       <div
       className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]"
       >
