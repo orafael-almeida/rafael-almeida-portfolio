@@ -21,6 +21,7 @@ const config: Config = {
         sans: "var(--font-sans)",
         serif: "var(--font-serif)",
         hero: "var(--font-hero)",
+        eyebrow: "var(--font-eyebrow)",
       },
       colors: {
         dark: "#232A3C",

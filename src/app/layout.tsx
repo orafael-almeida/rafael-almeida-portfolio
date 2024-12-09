@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter, Calistoga, Lilita_One } from "next/font/google";
+import { Inter, Calistoga, Lilita_One, Covered_By_Your_Grace } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import { ThemeProvider } from "@/providers/theme-provider";
+
+const coveredByYourGrace = Covered_By_Your_Grace({
+  subsets: ["latin"],
+  variable: "--font-eyebrow",
+  weight: ["400"],
+})
 
 const lilitaOne = Lilita_One({
   subsets: ["latin"],
@@ -34,6 +40,7 @@ export default function RootLayout({
           inter.variable,
           calistoga.variable,
           lilitaOne.variable,
+          coveredByYourGrace.variable,
           "bg-[#fefefe] dark:bg-gray-900 text-gray-900 dark:text-slate-200 antialiased font-sans"
         )}
       >
