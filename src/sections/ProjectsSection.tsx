@@ -9,6 +9,9 @@ import { IoCheckmark } from "react-icons/io5";
 import { HiOutlineSignal } from "react-icons/hi2";
 import { FiGithub } from "react-icons/fi";
 import grain from "@/assets/grain.jpg";
+import SectionTitle from "@/components/SectionTitle";
+import ButtonGeneral from "@/components/ButtonGeneral";
+import TechButton from "@/components/TechButton";
 
 const portfolioProjects = [
   {
@@ -23,6 +26,7 @@ const portfolioProjects = [
     repository: "https://github.com/orafael-almeida/oh-my-clothes-frontend",
     desktop: ohMyClothesDesktop,
     mobile: ohMyClothesMobile,
+    techs: ["react", "next", "tailwind"],
   },
   {
     company: "Nitro Dashboard",
@@ -36,10 +40,11 @@ const portfolioProjects = [
     repository: "https://github.com/orafael-almeida/nitro-dashboard-frontend",
     desktop: nitroDashboardDesktop,
     mobile: nitroDashboardMobile,
+    techs: ["react", "next", "tailwind", "motion"],
   },
   {
-    company: "NextGen Tech",
-    title: "Painel de Mídias Sociais",
+    company: "Consultare System",
+    title: "Sistema de Agendamento",
     results: [
       { title: "Integrado com análises em tempo real" },
       { title: "Aumentou o engajamento do usuário em 40%" },
@@ -50,32 +55,24 @@ const portfolioProjects = [
     repository: "https://github.com/orafael-almeida/consultare-system-frontend",
     desktop: consultareDesktop,
     mobile: consultareMobile,
+    techs: ["react", "next", "tailwind", "zod", "react-hook-form"],
   },
 ];
 
 export const ProjectsSection = () => {
   return (
-    <section
-      id="projects"
-      className="py-16 min-h-screen sticky overflow-x-hidden"
-    >
+    <section id="projects" className="py-16 min-h-screen overflow-x-hidden">
       <div className="container">
-        <div className="flex justify-center">
-          {/* <p className=" font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400  text-center bg-clip-text text-transparent">
-            ../destaques
-          </p> */}
-        </div>
-        <h2 className="font-serif text-3xl md:text-5xl text-center mt-6">
-          Projetos Recentes
-        </h2>
-        <p className="text-center md:text-lg text-white/60 mt-4 mx-auto">
-          Acompanhe alguns dos projetos principais que desenvolvi.
-        </p>
-        <div className="flex flex-col mt-10 gap-20">
+        <SectionTitle
+          title="Projetos Recentes"
+          eyebrow="projects"
+          description="Acompanhe alguns dos projetos principais que desenvolvi."
+        />
+        <div className="flex flex-col mt-6 gap-20">
           {portfolioProjects.map((project) => (
             <div
               key={project.title}
-              className="bg-gray-800 rounded-3xl relative z-0 overflow-hidden after:z-10 after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-8 after:pointer-events-none"
+              className="bg-gray-800 rounded-3xl relative z-0 overflow-hidden after:z-10 after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-4 after:pointer-events-none"
             >
               <div
                 className="absolute inset-0 -z-10 opacity-10"
@@ -87,11 +84,11 @@ export const ProjectsSection = () => {
 
               <h3 className="font-serif text-2xl mt-2">{project.title}</h3>
               <hr className="border-t-2 border-white/5 mt-1" />
-              <ul className="flex flex-col gap-4 mt-4">
+              <ul className="flex flex-col gap-2 mt-2">
                 {project.results.map((result) => (
                   <li
                     key={result.title}
-                    className="flex gap-2 text-sm text-white/50"
+                    className="flex gap-2 text-sm md:text-base text-white/50"
                   >
                     <IoCheckmark className="self-center" />
 
@@ -111,25 +108,26 @@ export const ProjectsSection = () => {
                   className="mt-6 max-h-[400px] w-auto"
                 />
               </div>
-              <div className="flex gap-2 my-6">
-                <a
-                  href={project.demo}
-                  className="cursor-pointer relative inline-flex items-center justify-center p-0.5 text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
-                >
-                  <span className="relative px-2 py-1.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 flex gap-2">
-                    <HiOutlineSignal className="self-center size-5" />
-                    Demo
-                  </span>
-                </a>
-                <a
-                  href={project.repository}
-                  className="cursor-pointer relative inline-flex items-center justify-center p-0.5 text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
-                >
-                  <span className="relative px-2 py-1.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 flex gap-2">
-                    <FiGithub className="self-center size-5" />
-                    Repositório
-                  </span>
-                </a>
+              <div className="flex justify-between items-center">
+                <div className="flex gap-2 my-6">
+                  <ButtonGeneral
+                    title="Demo"
+                    link={project.demo}
+                    Icon={HiOutlineSignal}
+                  />
+                  <ButtonGeneral
+                    title="Repositório"
+                    link={project.repository}
+                    Icon={FiGithub}
+                  />
+                </div>
+
+                <div className="flex gap-2 my-6">
+                  <span className="font-eyebrow text-2xl">techs:</span>
+                  {project.techs.map((tech) => (
+                    <TechButton key={tech} variant={tech} />
+                  ))}
+                </div>
               </div>
             </div>
           ))}
