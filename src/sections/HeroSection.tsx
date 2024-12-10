@@ -2,6 +2,7 @@
 
 import ImgEffect from "@/assets/grain.jpg";
 import StarsBackground from "@/components/StarsElement";
+import { useTheme } from "next-themes";
 import { FiGithub, FiInstagram, FiLinkedin } from "react-icons/fi";
 
 const MOCK_CONTACTS = [
@@ -20,11 +21,17 @@ const MOCK_CONTACTS = [
 ];
 
 const HeroSection = () => {
+  const { theme } = useTheme();
   return (
-    <div id="home" className="py-32 md:py-48 lg:py-56 relative z-0 h-screen flex items-center before:absolute before:inset-0 before:bg-[radial-gradient(circle,_rgba(0,0,0,0)_620px,_rgba(0,0,0,0.8)_100%)] overflow-hidden">
-      <div
-      className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]"
-      >
+    <div
+      id="home"
+      className={`py-32 md:py-48 lg:py-56 relative z-0 h-screen flex items-center before:absolute overflow-hidden ${
+        theme === "dark"
+          ? "before:inset-0 before:bg-[radial-gradient(circle,_rgba(0,0,0,0)_620px,_rgba(0,0,0,0.8)_100%)]"
+          : ""
+      }`}
+    >
+      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
         <div
           className="absolute inset-0 -z-30 opacity-5"
           style={{ backgroundImage: `url(${ImgEffect.src})` }}
@@ -38,7 +45,7 @@ const HeroSection = () => {
       </div>
       <div className="container">
         <div className="flex flex-col items-center">
-          <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
+          <div className="dark:bg-gray-950 bg-white border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
             <div className="bg-green-500 size-2.5 rounded-full"></div>
             <div className="text-sm font-medium">
               Disponível para novos desafios
