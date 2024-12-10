@@ -74,7 +74,7 @@ export default function DarkMode() {
           variants={vRotate}
           transition={trans}
           style={{ originX: "50%", originY: "50%" }}
-          className="size-6 text-gray-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+          className="size-6 text-slate-300 hover:text-slate-400 dark:text-slate-300 dark:hover:text-white transition-colors"
         >
           <mask id="moon-mask">
             <rect x="0" y="0" width="100%" height="100%" fill="white" />

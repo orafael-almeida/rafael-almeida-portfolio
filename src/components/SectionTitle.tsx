@@ -10,11 +10,11 @@ const SectionTitle = ({
   return (
     <>
       <div className="flex justify-center">
-        <p className="  tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-xl text-center bg-clip-text text-transparent">
+        <p className="text-slate-100 tracking-widest dark:bg-gradient-to-r dark:from-emerald-300 dark:to-sky-400 text-xl text-center bg-clip-text text-transparent">
             ../{eyebrow}
             </p>
       </div>
-      <h2 className="font-serif text-3xl md:text-5xl text-center mt-6">
+      <h2 className="text-white font-serif text-3xl md:text-5xl text-center mt-6">
         {title}
       </h2>
       <p className="text-center md:text-lg text-white/60 mt-4 mx-auto">
