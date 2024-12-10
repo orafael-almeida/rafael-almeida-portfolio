@@ -27,6 +27,10 @@ const config: Config = {
         dark: "#232A3C",
         medium: "#293245",
       },
+      backgroundImage: {
+        "diagonal-gradient":
+          "linear-gradient(45deg, #9dc66b 5%, #4fa49a 30%, #4361c2)",
+      },
     },
   },
   plugins: [],

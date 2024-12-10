@@ -13,11 +13,11 @@ body {
 }
 @layer base {
   .nav-item {
-    @apply px-2 md:px-4 py-1.5 rounded-full text-sm font-semibold transition duration-300 hover:bg-gray-900/60 hover:text-white dark:hover:bg-white/10 ;
+    @apply px-2 md:px-4 py-1.5 rounded-full text-sm font-semibold transition duration-300 hover:bg-gray-600/60 hover:text-white dark:hover:bg-white/40;
   }
 
   .hero-ring {
-    @apply absolute inset-0  border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-red-300/5 shadow-[0_0_80px_inset] shadow-violet-300/5
+    @apply absolute inset-0  border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-red-300/5 shadow-[0_0_80px_inset] shadow-violet-300/5;
   }
 }
 
@@ -35,4 +35,54 @@ body {
 
 .star {
   animation: twinkle 5s infinite;
+}
+
+@keyframes diagonal-stripes {
+  0% {
+    background: linear-gradient(
+      90deg,
+      rgba(30, 58, 138, 0.5),
+      rgba(30, 58, 138, 0.5)
+    );
+  }
+  50% {
+    background: linear-gradient(
+      45deg,
+      rgba(167, 243, 208, 0.7),
+      rgba(16, 185, 129, 0.7),
+      rgba(4, 120, 87, 0.7),
+      rgba(6, 78, 59, 0.7)
+    );
+    background-size: 400% 400%;
+  }
+  100% {
+    background: linear-gradient(
+      45deg,
+      rgba(167, 243, 208, 0.7),
+      rgba(16, 185, 129, 0.7),
+      rgba(4, 120, 87, 0.7),
+      rgba(6, 78, 59, 0.7)
+    );
+    background-position: 100% 100%;
+  }
+}
+
+@layer utilities {
+  .bg-custom-header {
+    position: relative;
+    background-color: rgba(70, 134, 160, 0.5);
+    background-attachment: fixed, fixed, fixed;
+    background-image: url("../assets/images/overlay2.png"),
+      url("../assets/images/overlay3.svg"),
+      linear-gradient(
+        45deg,
+        rgba(157, 198, 107, 0.6) 5%,
+        rgba(79, 164, 154, 0.6) 30%,
+        rgba(67, 97, 194, 0.6)
+      );
+    background-position: top left, center center, center center;
+    background-size: auto, cover, cover;
+    background-blend-mode: overlay;
+    filter: brightness(1.2);
+  }
 }
