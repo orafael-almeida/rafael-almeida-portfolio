@@ -1,3 +1,5 @@
+"use client";
+
 import ohMyClothesDesktop from "@/assets/images/oh-my-clothes-desktop.png";
 import ohMyClothesMobile from "@/assets/images/oh-my-clothes-mobile.png";
 import nitroDashboardDesktop from "@/assets/images/nitro-dashboard-desktop.png";
@@ -12,6 +14,8 @@ import grain from "@/assets/grain.jpg";
 import SectionTitle from "@/components/SectionTitle";
 import ButtonGeneral from "@/components/ButtonGeneral";
 import TechButton from "@/components/TechButton";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const portfolioProjects = [
   {
@@ -60,8 +64,22 @@ const portfolioProjects = [
 ];
 
 export const ProjectsSection = () => {
+  const [mounted, setMounted] = useState(false);
+  const { theme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
+
+  const backgroundClass = mounted
+    ? theme === "dark"
+      ? "bg-gray-900 before:inset-0 before:bg-[radial-gradient(circle,_rgba(0,0,0,0)_620px,_rgba(0,0,0,0.8)_100%)]"
+      : "bg-custom-header"
+    : "";
+
   return (
-    <section id="projects" className="py-16 min-h-screen overflow-x-hidden">
+    <section
+      id="projects"
+      className={`py-16 min-h-screen overflow-x-hidden ${backgroundClass}`}
+    >
       <div className="container">
         <SectionTitle
           title="Projetos Recentes"
@@ -72,23 +90,23 @@ export const ProjectsSection = () => {
           {portfolioProjects.map((project) => (
             <div
               key={project.title}
-              className="bg-gray-800 rounded-3xl relative z-0 overflow-hidden after:z-10 after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-4 after:pointer-events-none"
+              className="dark:bg-gray-800 rounded-3xl relative z-0 overflow-hidden after:z-10 after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-4 after:pointer-events-none"
             >
               <div
                 className="absolute inset-0 -z-10 opacity-10"
                 style={{ backgroundImage: `url(${grain.src})` }}
-              ></div>
-              <div className="bg-gradient-to-r from-emerald-300 to-sky-400 inline-flex gap-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
+              />
+              <div className="bg-gradient-to-r from-emerald-300 to-sky-300 inline-flex gap-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
                 <span>{project.company}</span>
               </div>
 
-              <h3 className="font-serif text-2xl mt-2">{project.title}</h3>
+              <h3 className="text-slate-100 font-serif text-2xl mt-2">{project.title}</h3>
               <hr className="border-t-2 border-white/5 mt-1" />
               <ul className="flex flex-col gap-2 mt-2">
                 {project.results.map((result) => (
                   <li
                     key={result.title}
-                    className="flex gap-2 text-sm md:text-base text-white/50"
+                    className="flex gap-2 text-sm md:text-base text-slate-200 dark:text-white/50"
                   >
                     <IoCheckmark className="self-center" />
 
@@ -123,7 +141,7 @@ export const ProjectsSection = () => {
                 </div>
 
                 <div className="flex gap-2 my-6">
-                  <span className="font-eyebrow text-2xl">techs:</span>
+                  <span className="font-eyebrow text-slate-300 text-2xl">techs:</span>
                   {project.techs.map((tech) => (
                     <TechButton key={tech} variant={tech} />
                   ))}
