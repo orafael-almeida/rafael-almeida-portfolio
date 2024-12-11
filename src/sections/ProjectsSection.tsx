@@ -80,7 +80,7 @@ export const ProjectsSection = () => {
       id="projects"
       className={`py-16 min-h-screen overflow-x-hidden ${backgroundClass}`}
     >
-      <div className="container">
+      <div className="flex flex-col px-4 md:px-16 lg:px-32">
         <SectionTitle
           title="Projetos Recentes"
           eyebrow="projects"
@@ -100,7 +100,9 @@ export const ProjectsSection = () => {
                 <span>{project.company}</span>
               </div>
 
-              <h3 className="text-slate-100 font-serif text-2xl mt-2">{project.title}</h3>
+              <h3 className="text-slate-100 font-serif text-2xl mt-2">
+                {project.title}
+              </h3>
               <hr className="border-t-2 border-white/5 mt-1" />
               <ul className="flex flex-col gap-2 mt-2">
                 {project.results.map((result) => (
@@ -123,11 +125,11 @@ export const ProjectsSection = () => {
                 <Image
                   src={project.mobile}
                   alt={project.title}
-                  className="mt-6 max-h-[400px] w-auto"
+                  className="hidden mdlg:block mt-6 max-h-[400px] w-auto"
                 />
               </div>
-              <div className="flex justify-between items-center">
-                <div className="flex gap-2 my-6">
+              <div className="flex flex-wrap-reverse justify-between items-center my-8">
+                <div className="flex gap-2 mt-2">
                   <ButtonGeneral
                     title="Demo"
                     link={project.demo}
@@ -140,8 +142,10 @@ export const ProjectsSection = () => {
                   />
                 </div>
 
-                <div className="flex gap-2 my-6">
-                  <span className="font-eyebrow text-slate-300 text-2xl">techs:</span>
+                <div className="flex gap-2 mt-2">
+                  <span className="hidden lg:block font-eyebrow text-slate-300 text-2xl">
+                    techs:
+                  </span>
                   {project.techs.map((tech) => (
                     <TechButton key={tech} variant={tech} />
                   ))}

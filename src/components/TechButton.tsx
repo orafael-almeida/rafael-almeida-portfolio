@@ -52,10 +52,10 @@ const TechButton = ({ variant }: { variant: string }) => {
   }
 
   return (
-    <button className="cursor-auto p-0.5 text-sm text-gray-900 rounded-lg  bg-gradient-to-br from-emerald-300 to-sky-400 dark:text-white  dark:focus:ring-blue-800">
-      <span className="px-2 py-1.5 bg-white dark:bg-gray-900 rounded-md  flex gap-2">
+    <button className="self-center cursor-auto p-0.5 text-sm text-gray-900 rounded-lg  bg-gradient-to-r from-emerald-300 to-sky-400 dark:text-white  dark:focus:ring-blue-800 h-max">
+      <span className="px-2 py-1.5 bg-white dark:bg-gray-900 rounded-md  flex">
         {Icon && <Icon className="self-center text-xl" />}
-        {title}
+        <span className="hidden md:block">{title}</span>
       </span>
     </button>
   );
