@@ -7,6 +7,7 @@ const config: Config = {
     screens: {
       sm: "375px",
       md: "768px",
+      mdlg: "1024px",
       lg: "1200px",
     },
     container: {
