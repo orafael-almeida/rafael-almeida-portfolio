@@ -86,11 +86,11 @@ export const ProjectsSection = () => {
           eyebrow="projects"
           description="Acompanhe alguns dos projetos principais que desenvolvi."
         />
-        <div className="flex flex-col mt-6 gap-20">
+        <div className="flex flex-col mt-6 gap-20 items-center justify-center">
           {portfolioProjects.map((project) => (
             <div
               key={project.title}
-              className="dark:bg-gray-800 rounded-3xl relative z-0 overflow-hidden after:z-10 after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-4 after:pointer-events-none"
+              className="dark:bg-gray-800 rounded-3xl relative z-0 overflow-hidden after:z-10 after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-4 after:pointer-events-none max-w-[1200px]"
             >
               <div
                 className="absolute inset-0 -z-10 opacity-10"
@@ -116,7 +116,7 @@ export const ProjectsSection = () => {
                   </li>
                 ))}
               </ul>
-              <div className="flex justify-around">
+              <div className="flex justify-around gap-8">
                 <Image
                   src={project.desktop}
                   alt={project.title}
