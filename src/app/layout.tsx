@@ -29,7 +29,7 @@ const calistoga = Calistoga({
 });
 
 export const metadata: Metadata = {
-  title: "Rafael Almeida - Portolio",
+  title: "Rafael Almeida - Portfolio",
   description: "Fullstack Creative Developer",
 };
 
