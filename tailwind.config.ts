@@ -32,8 +32,31 @@ const config: Config = {
         "diagonal-gradient":
           "linear-gradient(45deg, #9dc66b 5%, #4fa49a 30%, #4361c2)",
       },
+      animation: {
+        "move-left": "move-left 1s linear infinite",
+        "move-right": "move-right 1s linear infinite",
+      },
+      keyframes: {
+        "move-left": {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(-50%)",
+          },
+        },
+        "move-right": {
+          "0%": {
+            transform: "translateX(-50%)",
+          },
+          "100%": {
+            transform: "translateX(0%)",
+          },
+        },
+      },
     },
   },
+
   plugins: [],
 };
 export default config;

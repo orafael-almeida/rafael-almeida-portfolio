@@ -6,8 +6,9 @@ import Image from "next/image";
 import book from "@/assets/images/book1.jpg";
 import CardHeader from "@/components/CardHeader";
 import ToolboxItems from "@/components/ToolboxItems";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
+import { motion } from "framer-motion";
 
 const toolboxItems = [
   {
@@ -47,7 +48,7 @@ const curiosityItems = [
     title: "Sou Engenheiro Civil",
     emoji: "👷🏻‍♂️",
     left: "50%",
-    top: "5%",
+    top: "15%",
   },
   {
     title: "Papai da Bella",
@@ -84,8 +85,10 @@ const curiosityItems = [
 const AboutSection = () => {
   const [mounted, setMounted] = useState(false);
   const { theme } = useTheme();
+  const constraintRef = useRef(null);
 
   useEffect(() => setMounted(true), []);
+
 
   const backgroundClass = mounted
     ? theme === "dark"
@@ -124,11 +127,15 @@ const AboutSection = () => {
               </p>
             </div>
 
-            <ToolboxItems items={toolboxItems} className="mt-6" />
+            <ToolboxItems
+              items={toolboxItems}
+              className="mt-6"
+              itemsWrapperClassName="animate-move-left [animation-duration:50s]"
+            />
             <ToolboxItems
               items={toolboxItems}
               className="my-6"
-              itemsWrapperClassName=""
+              itemsWrapperClassName="animate-move-right [animation-duration:50s]"
             />
           </Card>
 
@@ -146,24 +153,26 @@ const AboutSection = () => {
             <Card className="h-[320px] flex flex-col md:col-span-3 p-0">
               <CardHeader
                 title="Além do código"
-                description="Descubra um pouco mais sobre mim e algumas coisas malucas que já fiz"
+                description="Descubra algumas coisas malucas que já fiz"
                 className="px-4 md:px-8 pt-6"
               />
-              <div className="relative flex-1">
+              <div className="relative flex-1" ref={constraintRef}>
                 {curiosityItems.map((item) => (
-                  <div
+                  <motion.div
                     key={item.title}
-                    className="inline-flex gap-2 px-6 items-center justify-center p-0.5 text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br from-emerald-300 to-sky-400 group-hover:from-emerald-300 group-hover:to-sky-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 absolute"
+                    className="inline-flex gap-2 px-6 items-center justify-center p-0.5 text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br from-emerald-300 to-sky-400 group-hover:from-emerald-300 group-hover:to-sky-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 absolute cursor-pointer"
                     style={{
                       left: item.left,
                       top: item.top,
                     }}
+                    drag
+                    dragConstraints={constraintRef}
                   >
                     <span>{item.emoji}</span>
                     <span className="font-medium text-gray-950 text-center text-nowrap">
                       {item.title}
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </Card>
