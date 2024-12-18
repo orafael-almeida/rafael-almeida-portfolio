@@ -1,4 +1,5 @@
 import AboutSection from "@/sections/About";
+import CtaSection from "@/sections/CtaSection";
 import Header from "@/sections/Header";
 import HeroSection from "@/sections/HeroSection";
 import { ProjectsSection } from "@/sections/ProjectsSection";
@@ -12,6 +13,7 @@ export default function Home() {
       <HeroSection />
       <ProjectsSection />
       <AboutSection />
+      <CtaSection />
     </div>
   );
 }
