@@ -102,14 +102,14 @@ const CtaSection = () => {
             <h2 className="text-5xl md:text-6xl max-w-sm mx-auto tracking-tighter text-center font-semibold text-white/70">
               Deixe uma mensagem
             </h2>
-            <p className="text-center text-lg md:text-xl max-w-xs mx-auto text-white/70 px-4 mt-5 tracking-tight">
+            <p className="text-center text-lg md:text-xl max-w-sm mx-auto text-white/70 px-4 mt-5 tracking-tight">
               Estou disponível para novos projetos e oportunidades de trabalho.
             </p>
             <div className="flex justify-center mt-8">
               <ButtonGeneral
-                title="Fale comigo"
-                link="#"
-                Icon={HiOutlineMail}
+              title="Fale comigo"
+              link="mailto:almeidarp.dev@gmail.com"
+              Icon={HiOutlineMail}
               />
             </div>
           </div>
